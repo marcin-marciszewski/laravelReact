@@ -7,7 +7,6 @@
 /storage/*.key
 /storage/pail
 /vendor
-.env
 .env.backup
 .env.production
 .phpactor.json
@@ -22,3 +21,6 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+project.tar
+server_log.sh
+server.log

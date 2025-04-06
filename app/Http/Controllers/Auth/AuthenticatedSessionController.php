@@ -29,6 +29,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        $a = ['a', 'b', 'c'];
         $request->authenticate();
 
         $request->session()->regenerate();
