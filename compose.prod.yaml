@@ -21,7 +21,7 @@ services:
             # This allows external access to the Nginx web server running inside the container.
             # For example, if 'NGINX_PORT' is set to '8080', accessing 'http://localhost:8080' will reach the application.
             # -----------------------------------------------------------
-            - '20319:80'
+            - '20266:80'
         depends_on:
             php-fpm:
                 condition: service_healthy # Wait for php-fpm health check

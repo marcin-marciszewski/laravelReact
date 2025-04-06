@@ -3,15 +3,15 @@ rm ./project.tar
 git archive --format tar --output ./project.tar main
 
 echo 'Uploading project...'
-ssh -o StrictHostKeyChecking=no root@srv12.mikr.us -p 10319 'rm -f /tmp/project.tar'
-if ! rsync -e "ssh -p 10319" --progress ./project.tar root@srv12.mikr.us:/tmp/project.tar; then
+ssh -o StrictHostKeyChecking=no root@srv12.mikr.us -p 10266 'rm -f /tmp/project.tar'
+if ! rsync -e "ssh -p 10266" --progress ./project.tar root@srv12.mikr.us:/tmp/project.tar; then
     echo "Failed to upload project.tar"
     exit 1
 fi
 echo 'Upload complete.'
 
 echo 'Building image...'
-ssh -o StrictHostKeyChecking=no root@srv12.mikr.us -p 10319 <<'ENDSSH'
+ssh -o StrictHostKeyChecking=no root@srv12.mikr.us -p 10266 <<'ENDSSH'
     # Create app directory and ensure proper permissions
     mkdir -p /app && chmod 755 /app
 
