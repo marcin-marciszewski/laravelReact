@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-enable redis \
     && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-   
+
 # Set the working directory inside the container
 WORKDIR /var/www
 
@@ -39,9 +39,9 @@ WORKDIR /var/www
 # Artisan commands like `php artisan package:discover`. If the
 # application code (including the `artisan` file) is not
 # present, these commands will fail, leading to build errors.
-# 
-# By copying the entire application code before running 
-# `composer install`, we ensure that all necessary files are 
+#
+# By copying the entire application code before running
+# `composer install`, we ensure that all necessary files are
 # available, allowing these scripts to run successfully.
 # In other cases, it would be possible to copy composer files
 # first, to leverage Docker's layer caching mechanism.
@@ -140,7 +140,7 @@ RUN if [ "${XDEBUG_ENABLED}" = "true" ]; then \
     echo "xdebug.log_level=${XDEBUG_LOG_LEVEL}" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
     echo "xdebug.client_host=${XDEBUG_HOST}" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini ; \
     echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini ; \
-fi
+    fi
 
 # Add ARGs for syncing permissions
 ARG UID=1000
@@ -148,12 +148,12 @@ ARG GID=1000
 
 # Create a new user with the specified UID and GID, reusing an existing group if GID exists
 RUN if getent group ${GID}; then \
-      group_name=$(getent group ${GID} | cut -d: -f1); \
-      useradd -m -u ${UID} -g ${GID} -s /bin/bash www; \
+    group_name=$(getent group ${GID} | cut -d: -f1); \
+    useradd -m -u ${UID} -g ${GID} -s /bin/bash www; \
     else \
-      groupadd -g ${GID} www && \
-      useradd -m -u ${UID} -g www -s /bin/bash www; \
-      group_name=www; \
+    groupadd -g ${GID} www && \
+    useradd -m -u ${UID} -g www -s /bin/bash www; \
+    group_name=www; \
     fi
 
 # Dynamically update php-fpm to use the new user and group
