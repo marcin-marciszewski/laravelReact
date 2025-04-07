@@ -16,7 +16,7 @@ services:
         networks:
             - laravel-production
         ports:
-            # Map port 80 inside the container to the port specified by 'NGINX_PORT' on the host machine.
+            # Map port 80 inside t he container to the port specified by 'NGINX_PORT' on the host machine.
             # -----------------------------------------------------------
             # This allows external access to the Nginx web server running inside the container.
             # For example, if 'NGINX_PORT' is set to '8080', accessing 'http://localhost:8080' will reach the application.

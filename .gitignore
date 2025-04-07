@@ -24,3 +24,5 @@ yarn-error.log
 project.tar
 server_log.sh
 server.log
+.env
+.env.prod
