@@ -1,3 +1,4 @@
+.env
 /.phpunit.cache
 /bootstrap/ssr
 /node_modules
@@ -24,5 +25,4 @@ yarn-error.log
 project.tar
 server_log.sh
 server.log
-.env
 .env.prod

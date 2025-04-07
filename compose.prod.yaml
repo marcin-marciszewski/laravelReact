@@ -37,7 +37,7 @@ services:
             - laravel-storage-production:/var/www/storage # Mount the storage volume
             - build-assets:/var/www/public/build # Mount the build assets volume
         env_file:
-            - .env
+            - .env.prod
         networks:
             - laravel-production
         healthcheck:

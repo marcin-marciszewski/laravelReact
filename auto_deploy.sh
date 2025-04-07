@@ -25,6 +25,8 @@ ssh -o StrictHostKeyChecking=no root@srv12.mikr.us -p 10266 <<'ENDSSH'
     rm -rf /app/*
     tar -xf /tmp/project.tar -C /app || { echo "Failed to extract tar file"; exit 1; }
 
+    rsync -e "ssh -p 10266" --progress ./.env.prod root@srv12.mikr.us:/app
+
     # Ensure we stop and remove all existing containers to clear any volumes
     docker compose -f /app/compose.prod.yaml down -v
 
