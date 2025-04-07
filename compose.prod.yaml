@@ -103,6 +103,6 @@ networks:
     laravel-production:
 
 volumes:
-    postgres-data-production:
+    # postgres-data-production:
     laravel-storage-production:
     build-assets:
